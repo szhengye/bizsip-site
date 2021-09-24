@@ -5,7 +5,7 @@
 
 title: Biz-SIP服务整合中间件 # Website name
 baseurl: 'http://bizsip.bizmda.com/' # Website URL
-copyright: '&copy; 2020-2021 BIZMDA.com版权所有[沪ICP备2021002172号](http://beian.miit.gov.cn)' # Footer text, e.g. '© {year} Me'
+copyright: '&copy; 2020-2021 BIZMDA.com版权所有 [沪ICP备2021002172号](http://beian.miit.gov.cn)' # Footer text, e.g. '© {year} Me'
 
 ############################
 ## LANGUAGE

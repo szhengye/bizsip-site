@@ -6,10 +6,8 @@
 widget: hero  # See https://wowchemy.com/docs/page-builder/
 headless: true  # This file represents a page section.
 weight: 10  # Order that this section will appear.
-title: |
-  Wowchemy  
-  Research Group
-hero_media: welcome.jpg
+title: Biz-SIP
+hero_media: bizsip.png
 design:
   # Choose how many columns the section has. Valid values: 1 or 2.
   columns: '1'
@@ -20,4 +18,4 @@ design:
 
 <br>
 
-The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+**Biz-SIP**是一套基于**领域驱动设计**（DDD），用于快速构建金融级**云原生**架构的**服务整合中间件**，包含了在金融场景里锤炼出来的最佳实践。
