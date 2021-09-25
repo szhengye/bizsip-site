@@ -1,0 +1,1092 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.2.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Nelson Bighetti" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="介绍Biz-SIP中间件主要场景的运行机制。" />
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="http://bizsip.bizmda.com/doc/know-how/" />
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.a53ee215eb6dcadd1a125dc8098e4c3e.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/index.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="http://bizsip.bizmda.com/doc/know-how/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Biz-SIP服务整合中间件" />
+  <meta property="og:url" content="http://bizsip.bizmda.com/doc/know-how/" />
+  <meta property="og:title" content="运行原理 | Biz-SIP服务整合中间件" />
+  <meta property="og:description" content="介绍Biz-SIP中间件主要场景的运行机制。" /><meta property="og:image" content="http://bizsip.bizmda.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://bizsip.bizmda.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="zh-Hans" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-09-24T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-09-24T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>运行原理 | Biz-SIP服务整合中间件</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="e952da95971db1f5baf3061435a98609" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.c2ae95842e5b33a787c7b8c567e989a4.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="搜索...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Biz-SIP服务整合中间件</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Biz-SIP服务整合中间件</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/doc"><span>指南</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post"><span>博客</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/event"><span>更新日志</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    
+
+
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      <form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-md-3 w-100" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <div class="d-flex">
+      <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
+        
+          Biz-SIP文档
+        
+      </span>
+      <span><i class="fas fa-chevron-down"></i></span>
+    </div>
+  </button>
+
+  
+  <button class="form-control sidebar-search js-search d-none d-md-flex">
+    <i class="fas fa-search pr-2"></i>
+    <span class="sidebar-search-text">搜索...</span>
+    <span class="sidebar-search-shortcut">/</span>
+  </button>
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+
+    
+      
+
+      
+
+
+  
+    
+    
+    
+    
+      
+    
+    
+
+    
+      <ul class="nav docs-sidenav">
+        <li class=""><a href="/doc/">Biz-SIP文档</a></li>
+    
+      
+
+
+  <li class=""><a href="/doc/quick-start/">快速启动</a></li>
+
+
+
+  <li class=""><a href="/doc/configuation/">系统配置</a></li>
+
+
+
+  <li class=""><a href="/doc/development/">系统开发</a></li>
+
+
+
+  <li class=""><a href="/doc/interface/">接口规范</a></li>
+
+
+
+  <li class="active"><a href="/doc/know-how/">运行原理</a></li>
+
+
+
+  <li class=""><a href="/doc/extend/">扩展开发</a></li>
+
+
+
+  <li class=""><a href="/doc/xbank/">xbank示例项目</a></li>
+
+      
+    
+
+    
+      </ul>
+    
+
+  
+</nav>
+
+    </div>
+
+    
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      
+
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一系统运行机制概述">一、系统运行机制概述</a>
+      <ul>
+        <li><a href="#1-系统架构">1 系统架构</a></li>
+        <li><a href="#2-处理流程">2 处理流程</a></li>
+        <li><a href="#3-运行机制图">3 运行机制图</a></li>
+      </ul>
+    </li>
+    <li><a href="#二应用层app-integrator">二、应用层App Integrator</a>
+      <ul>
+        <li><a href="#1-功能介绍">1 功能介绍</a></li>
+        <li><a href="#2-调用接口">2 调用接口</a></li>
+      </ul>
+    </li>
+    <li><a href="#三source服务接入模块">三、Source服务接入模块</a>
+      <ul>
+        <li><a href="#1-功能介绍-1">1 功能介绍</a></li>
+        <li><a href="#2-运行流程">2 运行流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#四sink服务调用模块">四、Sink服务调用模块</a>
+      <ul>
+        <li><a href="#1-功能介绍-2">1 功能介绍</a></li>
+        <li><a href="#2-运行流程-1">2 运行流程</a></li>
+        <li><a href="#3-sink服务类型">3 Sink服务类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#五延迟服务">五、延迟服务</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          
+
+          <h1>运行原理</h1>
+
+          <div class="article-style">
+            <p>介绍Biz-SIP中间件主要场景的运行机制。</p>
+<h2 id="一系统运行机制概述">一、系统运行机制概述</h2>
+<h3 id="1-系统架构">1 系统架构</h3>
+<p><img src="1632226476949-62d40226-15a1-460b-b1eb-07d125cc0725.png" alt="image.png"></p>
+<p>整个Biz-SIP中间件系统主要包括：应用层服务聚合模块（app integrator）、适配层服务接入模块（source）、领域层服务调用模块（sink）、Open API接口和内部基础服务五大块，其中：</p>
+<ul>
+<li>应用层服务聚合模块（app integrator）：负责服务的整合和编排，对Source模块接入的聚合服务，进行服务编排，并通过Sink模块接入要编排的服务。目前支持Script脚本服务整合和Java SDK服务整合模式。</li>
+<li>适配层服务接入模块（Source）：负责聚合服务的接入，包括通讯协议适配和消息格式转换，并统一接入Integrator。Source模块中的消息格式转换器（Source Converter）支持XML、JSON、定长、有分隔符、8583等报文的解包和打包。</li>
+<li>领域层服务调用模块（Sink）：统一被Integrator所调用，负责接入要编排的服务，包括和外部服务对接时的通讯协议适配和消息格式转换。Sink模块中的Sink通讯连接器（Sink Connector）支持微服务、消息中间件、TCP长短连接等多种接入方式；Sink模块中的消息格式转换器（Sink Converter）支持XML、JSON、定长、有分隔符、8583等报文。</li>
+<li>开放API接口（Open API）：对外提供的标准的API接口，提供所有聚合服务的接入，后面是接入服务聚合器（Integrator）。</li>
+<li>内部基础服务：内置数据库、日志、事务管理等常用的服务，由Integrator编排到聚合服务中。</li>
+</ul>
+<h3 id="2-处理流程">2 处理流程</h3>
+<p>Biz-SIP中间件的服务接入和处理流程，主要有标准接口接入和非标接口接入二种，其中标准接口接入是采用中间件约定的RESTful接口，不存在接入端的异构通讯适配和异构消息适配，比较简单，而非标接口接入会涉及异构通讯适配和异构消息适配的处理。
+<img src="1620138569876-d30a5472-706b-4cef-81f4-8cf9e09e4d0d.png" alt="image.png">
+这里以比较复杂的非标接口接入为例，一个简单的调用方应用通过Biz-SIP中间件调用一个被调用方应用后就直接返回的场景，来描述一下整个处理流程：
+<img src="0910bf33323c21a2d5fc2bee0d45ab27.svg" alt="">第1步：是适配层Source模块，针对调用方不同异构通讯协议的适配接入，既可以采用现成的通讯接入模块配置接入，也可以代码自行实现。
+第2步：Source模块在接入消息后，会调用Source API接口的process()方法。
+第3步：process()方法会根据消息转换配置，进行消息解包。通过消息解包，会把调用方应用的消息转换成Biz-SIP中间件采用的JSON消息格式。
+第4步：process()方法中，还会根据解包后的消息，通过聚合服务断言规则来定位要调用的聚合服务ID，聚合服务断言规则是对应config/source.yml文件中的service.service-rules配置项。</p>
+<blockquote>
+<p>注：第2、3、4步，可以无需调用Source API接口的process()，由开发人员自行编码实现，</p>
+</blockquote>
+<p>第5步：调用应用层App Integrator，开始调用约定的聚合服务，这个接口和标准接口接入的接口是同一个接口。
+第6步：服务流程编排，是根据聚合服务配置来进行服务调用的编排，目前支持Script服务聚合器、基于Java开发的服务聚合器；
+第7步：根据服务编排，会调用领域层Sink服务。
+第9步：消息打包，既可以代码自行实现，也可以配置Sink Converter来实现。通过消息打包，会把Biz-SIP中间件采用标准JSON消息格式，转换成外部被调用方的消息格式。
+第10步：调用Sink Connector，既可以采用现成的通讯接入模块配置接入，也可以代码自行实现。
+第11步：Sink Connector和被调用方应用通讯调用和交互。
+第13步：消息解包，同第9步，既可以编码实现，也可以配置Sink Converter来实现，通过消息解包，会把外部被调用方返回的消息，转成Biz-SIP中间件的标准JSON消息格式。
+第16步：Integrator继续执行后续的服务编排脚本。
+第18步：消息打包，具体类似第3步消息解包的工作，会把Biz-SIP中间件响应回来的JSON消息格式转换成调用方应用的响应消息。
+第20步：通过Source模块，将响应消息返回给调用方应用。</p>
+<h3 id="3-运行机制图">3 运行机制图</h3>
+<p><img src="1632293645795-2c70ffbc-1d33-4345-a250-5c01e1ad1341.png" alt="image.png">
+上图中：</p>
+<ul>
+<li>蓝色虚框所呈现的部分，主要是Biz-SIP中间件的配置文件。</li>
+<li>蓝底黑字所呈现的部分，表示是需要Java代码开发的，涉及适配层、应用层和领域层。</li>
+<li>蓝色虚箭头线所涉及的接口，就是不同层次之间需要互相依赖的接口定义。</li>
+</ul>
+<h2 id="二应用层app-integrator">二、应用层App Integrator</h2>
+<h3 id="1-功能介绍">1 功能介绍</h3>
+<p>App Integrator服务整合器主要是对聚合服务进行内部服务和外部服务的编排处理，系统架构上支持多种模式的服务整合器，目前支持服务聚合编排模式包括：</p>
+<ul>
+<li>基于Script脚本的服务编排：通过编写类JavaScript的脚本文件，来实现领域层服务的聚合和编排；</li>
+<li>基于Java代码开发的服务编排：开发人员通过Java代码的编写，实现领域层服务的编排，支持2种类型的Java服务类：
+<ul>
+<li>integrator-bean-service接口服务类：integrator-bean-service通过实现统一的接口来实现服务编排。</li>
+<li>bean-service接口服务类：bean-service提供更为灵活的接口定义来实现服务编排。</li>
+</ul>
+</li>
+<li>领域层服务的直接透传：通过配置sink-service，可以快速把领域层sink服务透传发布到前端的适配层source和OpenAPI接口。</li>
+</ul>
+<h3 id="2-调用接口">2 调用接口</h3>
+<p>App Integrator对外提供标准API接口接入，接口规范如下：</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>http://{地址}:{端口}/api</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP请求头</td>
+<td></td>
+</tr>
+<tr>
+<td>- Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>- Biz-Service-Id</td>
+<td>调用的聚合服务ID</td>
+</tr>
+<tr>
+<td>提交方式</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>请求包</td>
+<td>JSON报文</td>
+</tr>
+<tr>
+<td>响应包</td>
+<td>Biz-SIP内部标准消息（参见“Biz-SIP内部标准消息规范”）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三source服务接入模块">三、Source服务接入模块</h2>
+<h3 id="1-功能介绍-1">1 功能介绍</h3>
+<p>适配层Source模块主要是对接外部和系统内部其它系统的服务接入。
+主要功能主要有：</p>
+<ul>
+<li>通讯协议的对接：服务接入模块（Source）负责外部调用方服务的通讯接入；</li>
+<li>消息转换：把外部多种消息格式，转换成平台内部通过的JSONObject消息类型；</li>
+<li>调用应用层的App Integrator进行服务编排。</li>
+</ul>
+<p>并根据Source端定义的消息类型，调用消息类型所对应的消息转换器（Source Converter），转换器负责进行消息的格式转换，支持XML、JSON、定长、有分隔符、8583等报文的解包和打包。</p>
+<h3 id="2-运行流程">2 运行流程</h3>
+<p>Source模块的运行流程如下：</p>
+<ol>
+<li>通过模块配置或二次开发的通讯接口（可以调用配置好的connector，也可以代码自行实现），接入外部应用发来的消息报文；</li>
+<li>对收到的消息进行解包，解包可以通过调用配置好的conveter，也可以在代码中自行编码实现，其中息格式转换配置是定义在source.yml中，并结合“config/converter”目录下的消息格式配置文件，实现对消息解包的配置化。</li>
+<li>把解包好的消息，打包成JSON消息格式，发给Integrator；</li>
+<li>Integrator处理完成后，会用内部标准消息（BizMessage<JSONObject>）格式返回；</li>
+<li>对收到的消息进行打包，打包可以通过调用配置好的conveter，也可以在代码中自行编码实现。</li>
+<li>通过第1步使用的通讯接口，把最终消息报文返回给外部应用。</li>
+</ol>
+<h2 id="四sink服务调用模块">四、Sink服务调用模块</h2>
+<h3 id="1-功能介绍-2">1 功能介绍</h3>
+<p>Sink服务主要有二类：</p>
+<ul>
+<li>一类是对接第三方应用；</li>
+<li>另一类是领域层的交易处理模块。</li>
+</ul>
+<p>Sink服务的功能主要是二个：</p>
+<ul>
+<li>通讯协议的对接：Sink Connect负责和调用系统的通讯对接，支持微服务、消息中间件、TCP长短连接等多种接入方式；</li>
+<li>消息格式的转换：Sink Converter负责调用服务消息的格式转换，支持XML、JSON、定长、有分隔符、8583等报文。</li>
+</ul>
+<h3 id="2-运行流程-1">2 运行流程</h3>
+<p>Sink模块的运行流程如下：</p>
+<ol>
+<li>收到Integrator发来的消息报文（参照服务端适配器接口规范）；</li>
+<li>对收到的消息进行打包，打包可以通过调用配置好的conveter，也可以在代码中自行编码实现，其中息格式转换配置是定义在source.yml中，并结合“config/converter”目录下的消息格式配置文件，实现对消息打包的配置化。</li>
+<li>根据Sink端约定的通讯协议类型，可以选择基于配置的Sink Connector，也可以代码自行开发通讯接口，和外部应用进行消息报文交互；</li>
+<li>对外部应用返回的消息，进行解包，解包可以通过调用配置好的conveter，也可以在代码中自行编码实现；</li>
+<li>把解包成功的JSONObject平台消息报文，返回给Integrator。</li>
+</ol>
+<h3 id="3-sink服务类型">3 Sink服务类型</h3>
+<p>Sink目前支持4种Sink服务类型：netty、rabbitmq、sink-bean、bean。
+其中netty和rabbitmq是开箱即用的Sink服务，通过配置接入参数，就能快速实现TCP短连接和RabbitMQ RPC连接。
+sink-bean和bean服务类型，是提供Java开发框架，由Java开发人员来自行开发的，其中：</p>
+<ul>
+<li>sink-bean是基于报文消息的对接，一般用来对接采用报文通讯的第三方。</li>
+<li>bean是基于接口类的实现，接口比较严格，一般用来对接内部实现的交易处理系统。</li>
+</ul>
+<h2 id="五延迟服务">五、延迟服务</h2>
+<p>延迟服务主要用于Saga分布式事务和SAF存储转发的处理，主要场景有：</p>
+<ol>
+<li>重试通知：通知对方系统，直到对方给出明确的回复响应。</li>
+<li>向前补偿：调用第三方服务后，超时没有响应，系统会后续发起查询上笔交易状态的查询交易，根据查询交易状态来决定继续完成后续服务步骤还是对以前服务步骤发起补偿（冲正）操作。</li>
+<li>向后补偿：调用第三方服务后，超时没有响应，系统会立即发起针对此交易的补偿交易，补偿成功后，会对以前服务步骤依次发起补偿（冲正）操作；如果补偿失败，会置交易失败，由人工介入处理。</li>
+</ol>
+<p>以上这几种事务场景，都是调用延迟服务的方式来实现的，调用方式主要有二种：</p>
+<ul>
+<li>Script脚本中调用：在脚本中通过“sip.doDelayService()”调用来实现。</li>
+<li>Java调用：通过“IntegratorClientFactor.getDelayBizServiceClient()”获得延迟服务调用句柄，来进行延迟服务的调用。</li>
+</ul>
+<p>以Java调用为例，针对延迟服务的执行流程，如下图所示：
+<img src="1632055925501-c21ca7b1-c200-4a09-b075-a30502e65ab4.png" alt="image.png"></p>
+<ol>
+<li>适配层调用App Integrator后，会执行指定的聚合服务；</li>
+<li>在Java编写的聚合服务中，会首先约定一个聚合服务调用的接口xxxDelayInterface，会声明接口类型、调用延迟间隔时间和调用次数；</li>
+<li>在Java编写的服务中，可以通过前面声明的xxxDelayInterface接口，发起延迟服务的调用；</li>
+<li>发起延迟消息后，在平台内部实现机制上，是通过发送RabbitMQ延迟消息的方式来实现的；</li>
+<li>事务管理器在延迟服务接口约定的延迟时间后，会收到RabbitMQ消息，调起聚合服务（子服务）的处理；</li>
+<li>如果执行成功，则延迟服务顺利完成，父服务和子服务都标记为成功；</li>
+<li>如果在执行中抛出BizTimeOutException异常，则会结束当前延迟服务，等待延迟服务的再次唤起；</li>
+<li>如果在执行中抛出其它BizException异常，则会结束当前延迟服务，标记父服务和子服务为失败，等待人工后续处理；</li>
+<li>延迟服务唤起次数超限，也会会结束当前延迟服务，标记父服务和子服务为失败，等待人工后续处理。</li>
+</ol>
+          </div>
+
+          
+
+
+
+          
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/doc/interface/" rel="next">接口规范</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/doc/extend/" rel="prev">扩展开发</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Sep 24, 2021</p>
+
+          
+
+
+
+          
+
+
+
+
+          
+
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+
+  
+
+  
+
+  
+  <p class="powered-by">
+    © 2020-2021 BIZMDA.com版权所有 <a href="http://beian.miit.gov.cn">沪ICP备2021002172号</a>
+  </p>
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      由<a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>支持发布——免费<a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">开源</a>网站，为创作者赋能。
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/zh/js/wowchemy.min.c01dc0f474cb5aa17a63e06eb00111fe.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1910 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.2.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Nelson Bighetti" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="快速安装并运行Biz-SIP中间件，并运行相关的测试案例." />
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="http://bizsip.bizmda.com/doc/quick-start/" />
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.a53ee215eb6dcadd1a125dc8098e4c3e.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/index.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="http://bizsip.bizmda.com/doc/quick-start/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Biz-SIP服务整合中间件" />
+  <meta property="og:url" content="http://bizsip.bizmda.com/doc/quick-start/" />
+  <meta property="og:title" content="快速启动 | Biz-SIP服务整合中间件" />
+  <meta property="og:description" content="快速安装并运行Biz-SIP中间件，并运行相关的测试案例." /><meta property="og:image" content="http://bizsip.bizmda.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://bizsip.bizmda.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="zh-Hans" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-09-24T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-09-24T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>快速启动 | Biz-SIP服务整合中间件</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="0ee9398b95a815a0d2d06007e5f6e1c7" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.c2ae95842e5b33a787c7b8c567e989a4.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="搜索...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Biz-SIP服务整合中间件</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Biz-SIP服务整合中间件</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/doc"><span>指南</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post"><span>博客</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/event"><span>更新日志</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    
+
+
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      <form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-md-3 w-100" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <div class="d-flex">
+      <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
+        
+          Biz-SIP文档
+        
+      </span>
+      <span><i class="fas fa-chevron-down"></i></span>
+    </div>
+  </button>
+
+  
+  <button class="form-control sidebar-search js-search d-none d-md-flex">
+    <i class="fas fa-search pr-2"></i>
+    <span class="sidebar-search-text">搜索...</span>
+    <span class="sidebar-search-shortcut">/</span>
+  </button>
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+
+    
+      
+
+      
+
+
+  
+    
+    
+    
+    
+      
+    
+    
+
+    
+      <ul class="nav docs-sidenav">
+        <li class=""><a href="/doc/">Biz-SIP文档</a></li>
+    
+      
+
+
+  <li class="active"><a href="/doc/quick-start/">快速启动</a></li>
+
+
+
+  <li class=""><a href="/doc/configuation/">系统配置</a></li>
+
+
+
+  <li class=""><a href="/doc/development/">系统开发</a></li>
+
+
+
+  <li class=""><a href="/doc/interface/">接口规范</a></li>
+
+
+
+  <li class=""><a href="/doc/know-how/">运行原理</a></li>
+
+
+
+  <li class=""><a href="/doc/extend/">扩展开发</a></li>
+
+
+
+  <li class=""><a href="/doc/xbank/">xbank示例项目</a></li>
+
+      
+    
+
+    
+      </ul>
+    
+
+  
+</nav>
+
+    </div>
+
+    
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      
+
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一安装">一、安装</a>
+      <ul>
+        <li><a href="#1-项目源码下载">1 项目源码下载</a></li>
+        <li><a href="#2-mysql安装">2 MySQL安装</a></li>
+        <li><a href="#3-redis安装">3 Redis安装</a></li>
+        <li><a href="#4-rabbitmq安装">4 RabbitMQ安装</a></li>
+        <li><a href="#5-nacos安装springcloud版本">5 Nacos安装（SpringCloud版本）</a></li>
+      </ul>
+    </li>
+    <li><a href="#二配置">二、配置</a>
+      <ul>
+        <li><a href="#1-integrator相关配置文件">1 integrator相关配置文件</a></li>
+        <li><a href="#2-samplesample-sink模块相关配置文件">2 sample/sample-sink模块相关配置文件</a></li>
+        <li><a href="#3-samplesample-source模块相关配置文件">3 sample/sample-source模块相关配置文件</a></li>
+        <li><a href="#4-sourcenetty-source模块相关配置文件">4 source/netty-source模块相关配置文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#三启动系统">三、启动系统</a>
+      <ul>
+        <li><a href="#1-启动服务整合器integrator">1 启动服务整合器（Integrator）</a></li>
+        <li><a href="#2-启动sample-sink模块">2 启动Sample Sink模块</a></li>
+        <li><a href="#3-启动sample-source模块">3 启动Sample Source模块</a></li>
+        <li><a href="#4-启动netty-tcp-source模块可选">4 启动Netty TCP Source模块（可选）</a></li>
+        <li><a href="#5-启动openapi网关springcloud版本可以不用开启">5 启动OpenAPI网关（SpringCloud版本，可以不用开启）</a></li>
+      </ul>
+    </li>
+    <li><a href="#四运行sample测试案例">四、运行Sample测试案例</a>
+      <ul>
+        <li><a href="#1-简单服务处理">1 简单服务处理</a></li>
+        <li><a href="#2-简单服务转发">2 简单服务转发</a></li>
+        <li><a href="#3-非标接口接入">3 非标接口接入</a></li>
+        <li><a href="#4-调用多个服务">4 调用多个服务</a></li>
+        <li><a href="#5-简单xml消息转换">5 简单XML消息转换</a></li>
+        <li><a href="#6-复杂json消息转换">6 复杂JSON消息转换</a></li>
+        <li><a href="#7-复杂xml消息转换">7 复杂XML消息转换</a></li>
+        <li><a href="#8-定长消息转换">8 定长消息转换</a></li>
+        <li><a href="#9-有分隔符消息转换">9 有分隔符消息转换</a></li>
+        <li><a href="#10-iso8583消息转换">10 ISO8583消息转换</a></li>
+        <li><a href="#11-调用netty服务端">11 调用Netty服务端</a></li>
+        <li><a href="#12-netty客户端接入">12 Netty客户端接入</a></li>
+        <li><a href="#13-调用数据库操作">13 调用数据库操作</a></li>
+        <li><a href="#14-调用redis操作">14 调用Redis操作</a></li>
+        <li><a href="#15-通过事务管理进行服务调用重试">15 通过事务管理进行服务调用重试</a></li>
+        <li><a href="#16-java聚合服务实现简单服务转发">16 Java聚合服务实现简单服务转发</a></li>
+        <li><a href="#17-java聚合服务调用基于script的延迟服务">17 Java聚合服务调用基于Script的延迟服务</a></li>
+        <li><a href="#18-调用netty长连接异步返回">18 调用Netty长连接异步返回</a></li>
+        <li><a href="#19-调用springbean服务">19 调用SpringBean服务</a></li>
+        <li><a href="#20-聚合服务调用sinkclient接口服务">20 聚合服务调用SinkClient接口服务</a></li>
+        <li><a href="#21-java聚合服务调用java延迟服务">21 Java聚合服务调用Java延迟服务</a></li>
+        <li><a href="#22-聚合服务匹配springbean服务">22 聚合服务匹配SpringBean服务</a></li>
+        <li><a href="#23-sink聚合服务直接调用sink">23 Sink聚合服务直接调用Sink</a></li>
+        <li><a href="#24-聚合服务调用delayserviceclient接口服务">24 聚合服务调用DelayServiceClient接口服务</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          
+
+          <h1>快速启动</h1>
+
+          <div class="article-style">
+            <p>快速安装并运行Biz-SIP中间件，并运行相关的测试案例.</p>
+<h2 id="一安装">一、安装</h2>
+<h3 id="1-项目源码下载">1 项目源码下载</h3>
+<ol>
+<li>从“<a href="https://gitee.com/szhengye/biz-sip" target="_blank" rel="noopener">https://gitee.com/szhengye/biz-sip</a>”中Clone下载项目源码，SpringBoot版本下载springboot分支，SpringCloud版本下载springcloud分支。</li>
+<li>在Eclipse或IDEA中作为Maven项目导入。</li>
+</ol>
+<h3 id="2-mysql安装">2 MySQL安装</h3>
+<ol>
+<li>安装MySQL镜像</li>
+</ol>
+<pre><code class="language-shell">docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=bizsip123456 -d mysql
+</code></pre>
+<ol start="2">
+<li>建库</li>
+</ol>
+<p>执行项目中sql/sample.sql脚本，以建立sip演示库。</p>
+<h3 id="3-redis安装">3 Redis安装</h3>
+<pre><code class="language-shell">docker run -p 6379:6379 -d redis:latest redis-server
+</code></pre>
+<h3 id="4-rabbitmq安装">4 RabbitMQ安装</h3>
+<pre><code class="language-shell">docker pull rabbitmq
+docker run -d --name rabbitmq -e RABBITMQ_DEFAULT_USER=springcloud -e RABBITMQ_DEFAULT_PASS=springcloud -p 15672:15672 -p 5672:5672 rabbitmq:management
+# 下载延迟队列插件，并拷贝到容器中相关目录
+docker cp rabbitmq_delayed_message_exchange-3.8.0.ez rabbitmq:/plugins
+# 进入容器交互终端模式，用&quot;docker ps&quot;命令查询RabbitMQ的容器ID
+docker exec -it &lt;容器ID&gt; bash
+# 执行命令启用延迟队列插件
+rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+</code></pre>
+<h3 id="5-nacos安装springcloud版本">5 Nacos安装（SpringCloud版本）</h3>
+<ol>
+<li>下载Nacos镜像</li>
+</ol>
+<pre><code class="language-shell">docker pull nacos/nacos-server
+</code></pre>
+<ol start="2">
+<li>启动Nacos镜像</li>
+</ol>
+<pre><code class="language-shell">docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
+# 登录密码默认nacos/nacos
+# standalone 代表单机模式运行，非集群模式
+</code></pre>
+<ol start="3">
+<li>访问Nacos，默认账号/密码：nacos/nacos，访问地址：<a href="http://192.168.247.131:8848/nacos/index.html" target="_blank" rel="noopener">http://localhost:8848/nacos/index.html</a></li>
+</ol>
+<h2 id="二配置">二、配置</h2>
+<h3 id="1-integrator相关配置文件">1 integrator相关配置文件</h3>
+<p>application.yml文件：</p>
+<pre><code class="language-yaml">spring:
+  profiles:
+    active: local
+</code></pre>
+<p>application-local.yml文件：</p>
+<pre><code class="language-yaml">server:
+  port: 8888
+
+spring:
+  application:
+    name: bizsip-integrator
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bizsip-nacos:8848
+#  以下配置在Istio部署中打开，以不采用NACOS注册中心，而采用etcd注册机制
+#  cloud:
+#    service-registry:
+#      auto-registration:
+#        enabled: false  #禁用注册中心服务
+        
+  datasource:
+    url: jdbc:mysql://bizsip-mysql/sip
+    username: root
+    password: bizsip123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+  redis:
+    redisson:
+      enable: true
+    host: bizsip-redis
+    port: 6379
+    timeout: 6000
+    database: 0
+    lettuce:
+      pool:
+        max-active: 10 # 连接池最大连接数（使用负值表示没有限制）,如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)
+        max-idle: 8   # 连接池中的最大空闲连接 ，默认值也是8
+        max-wait: 100 # # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
+        min-idle: 2    # 连接池中的最小空闲连接 ，默认值也是0
+      shutdown-timeout: 100ms
+
+  rabbitmq:
+    virtual-host: /
+    host: bizsip-rabbitmq
+    port: 5672
+    username: springcloud
+    password: springcloud
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 15
+        prefetch: 10
+
+bizsip:
+  config-path: /var/bizsip/config
+
+logging:
+  level:
+    com.bizmda.bizsip: info
+</code></pre>
+<p>其中：</p>
+<ul>
+<li>server.port：服务整合器（Integrator）的微服务端口，建议用8888端口，避免和其它端口相冲突。</li>
+<li>spring.datasource.*：为数据库相关配置，应连接对应的数据库。</li>
+<li>spring.redis.*：为Redis相关配置，连接对应的Redis。</li>
+<li>spring.rabbitmq.*：为RabbitMQ相关配置，连接RabbitMQ中间件。</li>
+<li>bizsip.config-path：配置成项目下sample/config的实际安装目录。</li>
+<li>logging.level.com.bizmda.bizsip：日志级别，一般设置为info。</li>
+</ul>
+<h3 id="2-samplesample-sink模块相关配置文件">2 sample/sample-sink模块相关配置文件</h3>
+<p>application.yml文件：</p>
+<pre><code class="language-yaml">spring:
+  profiles:
+    active: local
+</code></pre>
+<p>application-local.yml文件：</p>
+<pre><code class="language-yaml">server:
+  port: 8001
+spring:
+  application:
+    name: bizsip-sample-sink
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bizsip-nacos:8848
+  #  以下配置在Istio部署中打开，以不采用NACOS注册中心，而采用etcd注册机制
+  #  cloud:
+  #    service-registry:
+  #      auto-registration:
+  #        enabled: false  #禁用注册中心服务
+
+  rabbitmq:
+    virtual-host: /
+    host: bizsip-rabbitmq
+    port: 5672
+    username: springcloud
+    password: springcloud
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 15
+        prefetch: 10
+
+bizsip:
+  config-path: /Users/shizhengye/IdeaProjects/biz-sip/sample/config
+#  config-path: /var/bizsip/config
+#  sink-id: sink-nothing	#如果引用了com.bizmda.bizsip.sink.controller.SinkController，就需要配置这个参数
+
+logging:
+  level:
+    com.bizmda.bizsip: debug
+</code></pre>
+<p>其中：</p>
+<ul>
+<li>server.port：为sample服务接入模块的RESTful服务端口，建议用8080。</li>
+<li>spring.rabbitmq.*：为RabbitMQ相关配置，连接RabbitMQ中间件。</li>
+<li>bizsip.config-path：配置成项目下sample/config的实际安装目录。</li>
+<li>sink-id：如果引用了Sink默认Controller（com.bizmda.bizsip.sink.controller.SinkController），就需要配置这个参数</li>
+<li>logging.level.com.bizmda.bizsip：日志级别，一般设置为info。</li>
+</ul>
+<h3 id="3-samplesample-source模块相关配置文件">3 sample/sample-source模块相关配置文件</h3>
+<p>application.yml文件：</p>
+<pre><code class="language-yaml">spring:
+  profiles:
+    active: local
+</code></pre>
+<p>application-local.yml文件：</p>
+<pre><code class="language-yaml">server:
+  port: 8080
+
+spring:
+  application:
+    name: bizsip-sample-source
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bizsip-nacos:8848
+  #  以下配置在Istio部署中打开，以不采用NACOS注册中心，而采用etcd注册机制
+  #  cloud:
+  #    service-registry:
+  #      auto-registration:
+  #        enabled: false  #禁用注册中心服务
+  
+bizsip:
+  config-path: /var/bizsip/config
+  integrator-url: http://bizsip-integrator/api
+
+logging:
+  level:
+    com.bizmda.bizsip: info
+</code></pre>
+<p>其中：</p>
+<ul>
+<li>server.port：为sample服务调用模块的微服务端口，建议用8001，不要其它端口相冲突。</li>
+<li>bizsip.integrator-url：为服务整合器（Integrator）的服务接口url，原则上不需要修改。</li>
+<li>bizsip.config-path：配置成项目下sample/config的实际安装目录。</li>
+<li>logging.level.com.bizmda.bizsip：日志级别，一般设置为info。</li>
+</ul>
+<h3 id="4-sourcenetty-source模块相关配置文件">4 source/netty-source模块相关配置文件</h3>
+<p>application.yml文件：</p>
+<pre><code class="language-yaml">spring:
+  profiles:
+    active: local
+</code></pre>
+<p>application-local.yml文件：</p>
+<pre><code class="language-yaml">server:
+  port: 8090
+
+spring:
+  application:
+    name: bizsip-netty-source
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bizsip-nacos:8848
+  #  以下配置在Istio部署中打开，以不采用NACOS注册中心，而采用etcd注册机制
+  #  cloud:
+  #    service-registry:
+  #      auto-registration:
+  #        enabled: false  #禁用注册中心服务
+
+bizsip:
+  config-path: /var/bizsip/config
+  integrator-url: http://bizsip-integrator/api
+  source-id: source1
+
+netty:
+  port: 10002
+
+logging:
+  level:
+    com.bizmda.bizsip: debug
+</code></pre>
+<p>其中：</p>
+<ul>
+<li>server.port：为sample服务调用模块的微服务端口，建议用8090，不要其它端口相冲突。</li>
+<li>bizsip.integrator-url：为服务整合器（Integrator）的服务接口url，原则上不需要修改。</li>
+<li>bizsip.config-path：配置成项目下sample/config的实际安装目录。</li>
+<li>bizsip.source-id：为当前source模块的Source ID。</li>
+<li>logging.level.com.bizmda.bizsip：日志级别，一般设置为info。</li>
+</ul>
+<h2 id="三启动系统">三、启动系统</h2>
+<p>测试用例架构如下图所示：</p>
+<p><img src="1619764437376-05aaaef1-f349-4193-8b4a-2bff736c10b3-20210924201314876.png" alt="image.png"></p>
+<h3 id="1-启动服务整合器integrator">1 启动服务整合器（Integrator）</h3>
+<p>运行integrator模块下“IntegratorApplication.java”</p>
+<h3 id="2-启动sample-sink模块">2 启动Sample Sink模块</h3>
+<p>运行sample/sample-sink模块下“SampleSinkApplication.java”</p>
+<h3 id="3-启动sample-source模块">3 启动Sample Source模块</h3>
+<p>运行sample/sample-source模块下“SampleSourceApplication.java”</p>
+<h3 id="4-启动netty-tcp-source模块可选">4 启动Netty TCP Source模块（可选）</h3>
+<p>运行source/netty-source模块下“NettySourceApplication.java”</p>
+<h3 id="5-启动openapi网关springcloud版本可以不用开启">5 启动OpenAPI网关（SpringCloud版本，可以不用开启）</h3>
+<p>运行api-gateway模块下“GatewayApplication.java”。
+对于后续测试案例的调用发起，都是直接发给Integrator服务整合器的，端口是8888；如果需要从OpenAPI网关发起，端口是8000。这二种情况的返回结果是一致的。
+后续测试案例都是直接发给Integrator服务整合器的，目前端口是8888。</p>
+<h2 id="四运行sample测试案例">四、运行Sample测试案例</h2>
+<h3 id="1-简单服务处理">1 简单服务处理</h3>
+<p>通过Biz-SIP的开放API接口发送请求，由服务整合器处理后，直接返回。
+<img src="a51ec1a83e2a9a313c8f9c31ed2663de.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/sample1&quot; -X POST --data '{&quot;accountNo&quot;:&quot;62001818&quot;,&quot;sex&quot;:&quot;0&quot;,&quot;email&quot;:&quot;123232@163.com&quot;,&quot;mobile&quot;:&quot;18601872345&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;414ac54e35d446a9bf36a7bae189eb2b&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1610334191563,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;62001818的账户名...&quot;,
+    &quot;sex&quot;: &quot;0&quot;,
+    &quot;mobile&quot;: &quot;18601872345&quot;,
+    &quot;accountNo&quot;: &quot;62001818&quot;,
+    &quot;email&quot;: &quot;123232@163.com&quot;
+  }
+}
+</code></pre>
+<h3 id="2-简单服务转发">2 简单服务转发</h3>
+<p>通过Biz-SIP的开放API接口，调用CRM服务（用CrmServer.java类作为模拟），查询返回对应的账户名称。
+<img src="ea627b4bd4f84a360a6ab7657e531530.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/sample2&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;f30a96f6d73b4f44853b56a29688e1aa&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914563646,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;张三&quot;,
+    &quot;accountNo&quot;: &quot;003&quot;
+  }
+}
+</code></pre>
+<h3 id="3-非标接口接入">3 非标接口接入</h3>
+<p>通过非标API接口上送服务请求，实现原来通过标准API接口调用openapi/sample2服务。
+<img src="6a00eb4215d03a586d2e7effc3ef4536.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -X POST --data '{&quot;serviceId&quot;:&quot;/openapi/sample2&quot;,&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8080/source1|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;9a0421faccf14f7b8f8dfd9916e8aca2&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1619768390392,
+  &quot;data&quot;: &quot;{\&quot;accountName\&quot;:\&quot;张三\&quot;,\&quot;accountNo\&quot;:\&quot;003\&quot;,\&quot;serviceId\&quot;:\&quot;/openapi/sample2\&quot;}&quot;
+}
+
+</code></pre>
+<h3 id="4-调用多个服务">4 调用多个服务</h3>
+<p>通过Biz-SIP的开放API接口，调用Server1返回帐户名称，调用Server2返回账户余额。
+<img src="224ccd5fb77e8fc5651151dc0d238340.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/sample4&quot; -X POST --data '{&quot;accountNo&quot;:&quot;005&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;67e451ea394a4714b3be6b4496ead1e6&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914708687,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;王五&quot;,
+    &quot;balance&quot;: 500,
+    &quot;accountNo&quot;: &quot;005&quot;
+  }
+}
+</code></pre>
+<h3 id="5-简单xml消息转换">5 简单XML消息转换</h3>
+<p>通过Biz-SIP的开放API接口，用simple-xml消息格式调用Server3，Server3会调用EchoServer打印消息报文，并用原服文返回。
+<img src="0d42cc640f7ae8bda9d635aa9b5eda28.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/sample5&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;balance&quot;: 500,&quot;accountNo&quot;:&quot;005&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;41112613fd4d4d9a85d8ba420ed5dbd5&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914764308,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;王五&quot;,
+    &quot;balance&quot;: 500,
+    &quot;accountNo&quot;: &quot;005&quot;
+  }
+}
+</code></pre>
+<p>Server3接入EchoServer类打印的消息：</p>
+<pre><code class="language-xml">EchoServer传入消息:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;root&gt;&lt;accountName&gt;王五&lt;/accountName&gt;&lt;balance&gt;500&lt;/balance&gt;&lt;accountNo&gt;005&lt;/accountNo&gt;&lt;/root&gt;
+</code></pre>
+<h3 id="6-复杂json消息转换">6 复杂JSON消息转换</h3>
+<p>通过Biz-SIP的开放API接口，用velocity-json消息格式调用Server4，Server4会调用EchoServer打印消息报文，并用原服文返回。
+<img src="bdc48a9317d500998810b7c44929cbfa.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server4&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;sex&quot;: &quot;0&quot;,&quot;accountNo&quot;:&quot;005&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;f6e36e068f824d57840222bafb9f0fac&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914809605,
+  &quot;data&quot;: {
+    &quot;sex&quot;: &quot;女&quot;,
+    &quot;account_no&quot;: &quot;005&quot;,
+    &quot;account_name&quot;: &quot;王五&quot;
+  }
+}
+</code></pre>
+<p>EchoServer打印日志：</p>
+<pre><code class="language-shell">EchoServer传入消息:{sex:&quot;女&quot;,account_no:&quot;005&quot;,account_name:&quot;王五&quot;}
+</code></pre>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server4&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;sex&quot;: &quot;1&quot;,&quot;accountNo&quot;:&quot;005&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;f2d0e28597634b1a89c4e8e4140ae8a7&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914847120,
+  &quot;data&quot;: {
+    &quot;sex&quot;: &quot;男&quot;,
+    &quot;account_no&quot;: &quot;005&quot;,
+    &quot;account_name&quot;: &quot;王五&quot;
+  }
+}
+</code></pre>
+<p>EchoServer打印日志：</p>
+<pre><code class="language-shell">EchoServer传入消息:{sex:&quot;男&quot;,account_no:&quot;005&quot;,account_name:&quot;王五&quot;}
+</code></pre>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server4&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;sex&quot;: &quot;2&quot;,&quot;accountNo&quot;:&quot;005&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;297c62d7fc234eb894d7447e0667f360&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914874611,
+  &quot;data&quot;: {
+    &quot;sex&quot;: &quot;?&quot;,
+    &quot;account_no&quot;: &quot;005&quot;,
+    &quot;account_name&quot;: &quot;王五&quot;
+  }
+}
+</code></pre>
+<p>EchoServer打印日志：</p>
+<pre><code class="language-shell">EchoServer传入消息:{sex:&quot;?&quot;,account_no:&quot;005&quot;,account_name:&quot;王五&quot;}
+</code></pre>
+<h3 id="7-复杂xml消息转换">7 复杂XML消息转换</h3>
+<p>通过Biz-SIP的开放API接口，用velocity-xml消息格式调用Server5，Server5会调用EchoServer打印消息报文，并用原服文返回。
+<img src="18e5d62adf6d0e070012e927de0aabee.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server5&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;sex&quot;: &quot;0&quot;,&quot;accountNo&quot;:&quot;005&quot;,&quot;balance&quot;:100}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;04a92806779a415b94a056a390c38c58&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1631418837236,
+  &quot;data&quot;: {
+    &quot;account&quot;: {
+      &quot;no&quot;: &quot;005&quot;,
+      &quot;sex&quot;: &quot;女人&quot;,
+      &quot;balance&quot;: 100,
+      &quot;name&quot;: &quot;王五&quot;
+    }
+  }
+}
+</code></pre>
+<p>SampleSinkApplication打印日志：</p>
+<pre><code class="language-xml">EchoServer传入消息:[&lt;account&gt;
+    &lt;name&gt;王五&lt;/name&gt;
+    &lt;balance&gt;100&lt;/balance&gt;
+    &lt;no&gt;005&lt;/no&gt;
+    &lt;sex&gt;女人&lt;/sex&gt;
+&lt;/account&gt;]
+</code></pre>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server5&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;sex&quot;: &quot;0&quot;,&quot;accountNo&quot;:&quot;005&quot;,&quot;balance&quot;:1000}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;c798f6cfc22b42e19933d860ba6bce3b&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609915845068,
+  &quot;data&quot;: {
+    &quot;account&quot;: {
+      &quot;no&quot;: &quot;005&quot;,
+      &quot;sex&quot;: &quot;女人&quot;,
+      &quot;balance&quot;: 1000,
+      &quot;name&quot;: &quot;王五&quot;
+    }
+  }
+}
+</code></pre>
+<p>SampleSinkApplication打印日志：</p>
+<pre><code class="language-shell">EchoServer传入消息:[&lt;account&gt;
+    &lt;name&gt;王五&lt;/name&gt;
+    &lt;balance&gt;1000&lt;/balance&gt;
+    &lt;no&gt;005&lt;/no&gt;
+    &lt;sex&gt;女人&lt;/sex&gt;
+&lt;/account&gt;]
+</code></pre>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server5&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;sex&quot;: &quot;2&quot;,&quot;accountNo&quot;:&quot;005&quot;,&quot;balance&quot;:1000}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;8014463d1c7d451cb47c279973931ba0&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609915967831,
+  &quot;data&quot;: {
+    &quot;account&quot;: {
+      &quot;no&quot;: &quot;005&quot;,
+      &quot;sex&quot;: &quot;不知道&quot;,
+      &quot;balance&quot;: 1000,
+      &quot;name&quot;: &quot;王五&quot;
+    }
+  }
+}
+</code></pre>
+<p>SampleSinkApplication打印日志：</p>
+<pre><code class="language-xml">EchoServer传入消息:[&lt;account&gt;
+    &lt;name&gt;王五&lt;/name&gt;
+    &lt;balance&gt;1000&lt;/balance&gt;
+    &lt;no&gt;005&lt;/no&gt;
+    &lt;sex&gt;不知道&lt;/sex&gt;
+&lt;/account&gt;
+</code></pre>
+<h3 id="8-定长消息转换">8 定长消息转换</h3>
+<p>通过Biz-SIP的开放API接口，用定长消息格式调用Server6，Server6会调用EchoServer打印消息报文，并用原服文返回。
+<img src="99b3cddca4737803fc0453b97bea2e9b.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server6&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;balance&quot;: 500,&quot;accountNo&quot;:&quot;005&quot;,&quot;sex&quot;:&quot;0&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;f46a1f79ca0241719b4dc1bd3cc3457c&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609916044599,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;王五        &quot;,
+    &quot;sex&quot;: &quot;0&quot;,
+    &quot;balance&quot;: &quot;500       &quot;,
+    &quot;accountNo&quot;: &quot;005     &quot;
+  }
+}
+
+</code></pre>
+<p>SampleSinkApplicationc对于Server6接入EchoServer类打印的消息：</p>
+<pre><code class="language-shell">EchoServer传入消息:[0005     王五        500       ]
+</code></pre>
+<h3 id="9-有分隔符消息转换">9 有分隔符消息转换</h3>
+<p>通过Biz-SIP的开放API接口，用定长消息格式调用Server7，Server7会调用EchoServer打印消息报文，并用原服文返回。
+<img src="11d78198c66f5e6b2f3ef974a78cd311.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server7&quot; -X POST --data '{&quot;accountName&quot;: &quot;王五&quot;,&quot;balance&quot;: 500,&quot;accountNo&quot;:&quot;005&quot;,&quot;sex&quot;:&quot;0&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;3a139d684acc4137b744625cace14267&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1610336392183,
+  &quot;data&quot;: {
+    &quot;array&quot;: [
+      [
+        &quot;0&quot;,
+        &quot;005&quot;
+      ],
+      [
+        &quot;王五&quot;,
+        &quot;500&quot;
+      ]
+    ]
+  }
+}
+</code></pre>
+<p>SampleSinkApplicationc对于Server7接入EchoServer类打印的消息：</p>
+<pre><code class="language-shell">EchoServer传入消息:[0,005*王五,500]
+</code></pre>
+<h3 id="10-iso8583消息转换">10 ISO8583消息转换</h3>
+<p>通过source controller，在sink端打包成ISO8583报文格式调用sink13，sink13会调用EchoServer打印消息报文，并用原服文返回，在sink端解包成JSON报文后返回。
+<img src="4cb75220113a8cd22309c73fd6d4b483.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; http://localhost:8080/sink13|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;91bef734f69a4da8b1be35138a4e9707&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1632041946033,
+  &quot;data&quot;: {
+    &quot;msgType&quot;: &quot;0800&quot;,
+    &quot;reserved60&quot;: &quot;000000000030&quot;,
+    &quot;card_accptr_id42&quot;: &quot;898411341310014&quot;,
+    &quot;systemTraceAuditNumber11&quot;: &quot;000001&quot;,
+    &quot;switching_data62&quot;: &quot;53657175656e6365204e6f3132333036303733373832323134&quot;,
+    &quot;card_accptr_termnl_id41&quot;: &quot;73782214&quot;,
+    &quot;msgHead&quot;: &quot;31323031383430303031303334342020203432343330343430202020393031323334353637383930313233343536&quot;,
+    &quot;acct_id_1_102&quot;: &quot;1234567890&quot;,
+    &quot;fin_net_data63&quot;: &quot;303031&quot;
+  }
+}
+</code></pre>
+<p>SampleSinkApplicationc对于sink13接入EchoServer类打印的消息：</p>
+<h3 id="11-调用netty服务端">11 调用Netty服务端</h3>
+<p>通过Biz-SIP的开放API接口，调用Netty TCP服务端。
+<img src="1cf2a7af1d0d0ff59b00eddf31d350f4.svg" alt=""></p>
+<p>在终端1启动：</p>
+<pre><code class="language-shell">$ echo '{&quot;accountName&quot;: &quot;王五&quot;,&quot;balance&quot;: 500,&quot;accountNo&quot;:&quot;xxx&quot;}'|nc -l 10001
+</code></pre>
+<p>在终端2启动：</p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/netty&quot; -X POST --data '{&quot;accountNo&quot;:&quot;999&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;bb4255801a54442ca16f0189d64b951f&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609916153979,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;王五&quot;,
+    &quot;balance&quot;: 500,
+    &quot;accountNo&quot;: &quot;xxx&quot;
+  }
+}
+</code></pre>
+<p>终端1会显示：</p>
+<pre><code class="language-shell">$ echo '{&quot;accountName&quot;: &quot;王五&quot;,&quot;balance&quot;: 500,&quot;accountNo&quot;:&quot;xxx&quot;}'|nc -l 10001
+{&quot;accountNo&quot;:&quot;999&quot;}
+</code></pre>
+<h3 id="12-netty客户端接入">12 Netty客户端接入</h3>
+<p>通过Netty客户端接入，来调用聚合服务。
+<img src="67782a1d38f339e0eb42acc0d9e4f2ec.svg" alt=""></p>
+<pre><code class="language-shell">$ echo '{&quot;serviceId&quot;:&quot;/openapi/sample2&quot;,&quot;accountNo&quot;:&quot;003&quot;}'|nc localhost 10002
+
+{&quot;accountName&quot;:&quot;张三&quot;,&quot;accountNo&quot;:&quot;003&quot;,&quot;serviceId&quot;:&quot;/openapi/sample2&quot;}
+</code></pre>
+<h3 id="13-调用数据库操作">13 调用数据库操作</h3>
+<p>通过Biz-SIP的开放API接口，在脚本服务中根据上送的账号在数据表中进行查询，并直接返回查询结果。
+<img src="f06d1db2f470eb1fda53e4e408adbc25.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/db1&quot; -X POST --data '{&quot;accountNo&quot;:&quot;002&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;19dd46603d844b40a1bce11cd2760e1c&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609924306042,
+  &quot;data&quot;: [
+    {
+      &quot;accountName&quot;: &quot;李四&quot;,
+      &quot;sex&quot;: &quot;1&quot;,
+      &quot;balance&quot;: 200,
+      &quot;accountNo&quot;: &quot;002&quot;
+    }
+  ]
+}
+
+</code></pre>
+<h3 id="14-调用redis操作">14 调用Redis操作</h3>
+<p>通过Biz-SIP的开放API接口，在脚本服务中根据上送的账号在Redis中进行存储，并直接返回查询结果。
+<img src="a3fabc46733738ac91614188eec32763.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/redis1&quot; -X POST --data '{&quot;accountNo&quot;:&quot;002&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;e04430bb7f754959b52a28a8a6e4456a&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609924818739,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;002&quot;,
+    &quot;accountNo&quot;: &quot;002&quot;
+  }
+}
+</code></pre>
+<pre><code class="language-shell">redis&gt;get account_no
+&quot;002&quot;
+</code></pre>
+<h3 id="15-通过事务管理进行服务调用重试">15 通过事务管理进行服务调用重试</h3>
+<p>通过Biz-SIP的开放API接口，在脚本服务中调用SAF服务，对server3服务进行多达5次的服务重试调用。
+<img src="2d025639c899667263b26120319031d1.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/safservice&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq  
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   186    0   167  100    19    598     68 --:--:-- --:--:-- --:--:--   666
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;f1afe72dac0842ad8912e063b7bcf593&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1631513601741,
+  &quot;data&quot;: {
+    &quot;accountNo&quot;: &quot;003&quot;
+  }
+}
+</code></pre>
+<p>SampleSinkApplication日志：</p>
+<pre><code>[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:21.952 DEBUG 53605 [48E46F14E87845BE9040414A89AEFC03] [http-nio-8001-exec-1] c.b.b.s.sink.controller.Sink3Controller  inMessage:BizMessage(code=0, message=null, extMessage=null, traceId=f1afe72dac0842ad8912e063b7bcf593, parentTraceId=null, timestamp=1631513601741, data={&quot;retryCount&quot;:1,&quot;accountNo&quot;:&quot;003&quot;})
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:21.955 DEBUG 53605 [48E46F14E87845BE9040414A89AEFC03] [http-nio-8001-exec-1] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]打包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:21.963 DEBUG 53605 [48E46F14E87845BE9040414A89AEFC03] [http-nio-8001-exec-1] com.bizmda.bizsip.sink.Sink              Sink通过Connect[sink-bean]调用服务
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:21.963 DEBUG 53605 [48E46F14E87845BE9040414A89AEFC03] [http-nio-8001-exec-1] c.b.b.s.connector.SinkBeanSinkConnector  调用SinkBeanSinkConnector[com.bizmda.bizsip.sample.sink.controller.EchoServer]的process()
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:21.963 DEBUG 53605 [48E46F14E87845BE9040414A89AEFC03] [http-nio-8001-exec-1] c.b.b.sample.sink.controller.EchoServer  EchoServer传入消息:[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;root&gt;&lt;retryCount&gt;1&lt;/retryCount&gt;&lt;accountNo&gt;003&lt;/accountNo&gt;&lt;/root&gt;]
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:21.964 DEBUG 53605 [48E46F14E87845BE9040414A89AEFC03] [http-nio-8001-exec-1] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]解包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:24.014 DEBUG 53605 [317BD9F4F3044E92A6A1D271ACD8376B] [http-nio-8001-exec-2] c.b.b.s.sink.controller.Sink3Controller  inMessage:BizMessage(code=0, message=null, extMessage=null, traceId=f1afe72dac0842ad8912e063b7bcf593, parentTraceId=null, timestamp=1631513601741, data={&quot;retryCount&quot;:2,&quot;accountNo&quot;:&quot;003&quot;})
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:24.014 DEBUG 53605 [317BD9F4F3044E92A6A1D271ACD8376B] [http-nio-8001-exec-2] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]打包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:24.028 DEBUG 53605 [317BD9F4F3044E92A6A1D271ACD8376B] [http-nio-8001-exec-2] com.bizmda.bizsip.sink.Sink              Sink通过Connect[sink-bean]调用服务
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:24.028 DEBUG 53605 [317BD9F4F3044E92A6A1D271ACD8376B] [http-nio-8001-exec-2] c.b.b.s.connector.SinkBeanSinkConnector  调用SinkBeanSinkConnector[com.bizmda.bizsip.sample.sink.controller.EchoServer]的process()
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:24.029 DEBUG 53605 [317BD9F4F3044E92A6A1D271ACD8376B] [http-nio-8001-exec-2] c.b.b.sample.sink.controller.EchoServer  EchoServer传入消息:[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;root&gt;&lt;retryCount&gt;2&lt;/retryCount&gt;&lt;accountNo&gt;003&lt;/accountNo&gt;&lt;/root&gt;]
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:24.030 DEBUG 53605 [317BD9F4F3044E92A6A1D271ACD8376B] [http-nio-8001-exec-2] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]解包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:28.083 DEBUG 53605 [A62381D250A149E8AC201E5F1BBBDE33] [http-nio-8001-exec-3] c.b.b.s.sink.controller.Sink3Controller  inMessage:BizMessage(code=0, message=null, extMessage=null, traceId=f1afe72dac0842ad8912e063b7bcf593, parentTraceId=null, timestamp=1631513601741, data={&quot;retryCount&quot;:3,&quot;accountNo&quot;:&quot;003&quot;})
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:28.083 DEBUG 53605 [A62381D250A149E8AC201E5F1BBBDE33] [http-nio-8001-exec-3] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]打包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:28.091 DEBUG 53605 [A62381D250A149E8AC201E5F1BBBDE33] [http-nio-8001-exec-3] com.bizmda.bizsip.sink.Sink              Sink通过Connect[sink-bean]调用服务
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:28.091 DEBUG 53605 [A62381D250A149E8AC201E5F1BBBDE33] [http-nio-8001-exec-3] c.b.b.s.connector.SinkBeanSinkConnector  调用SinkBeanSinkConnector[com.bizmda.bizsip.sample.sink.controller.EchoServer]的process()
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:28.091 DEBUG 53605 [A62381D250A149E8AC201E5F1BBBDE33] [http-nio-8001-exec-3] c.b.b.sample.sink.controller.EchoServer  EchoServer传入消息:[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;root&gt;&lt;retryCount&gt;3&lt;/retryCount&gt;&lt;accountNo&gt;003&lt;/accountNo&gt;&lt;/root&gt;]
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:28.093 DEBUG 53605 [A62381D250A149E8AC201E5F1BBBDE33] [http-nio-8001-exec-3] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]解包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:36.162 DEBUG 53605 [305FB08B640B41EC92EF8AED3AE667F6] [http-nio-8001-exec-4] c.b.b.s.sink.controller.Sink3Controller  inMessage:BizMessage(code=0, message=null, extMessage=null, traceId=f1afe72dac0842ad8912e063b7bcf593, parentTraceId=null, timestamp=1631513601741, data={&quot;retryCount&quot;:4,&quot;accountNo&quot;:&quot;003&quot;})
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:36.162 DEBUG 53605 [305FB08B640B41EC92EF8AED3AE667F6] [http-nio-8001-exec-4] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]打包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:36.167 DEBUG 53605 [305FB08B640B41EC92EF8AED3AE667F6] [http-nio-8001-exec-4] com.bizmda.bizsip.sink.Sink              Sink通过Connect[sink-bean]调用服务
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:36.167 DEBUG 53605 [305FB08B640B41EC92EF8AED3AE667F6] [http-nio-8001-exec-4] c.b.b.s.connector.SinkBeanSinkConnector  调用SinkBeanSinkConnector[com.bizmda.bizsip.sample.sink.controller.EchoServer]的process()
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:36.167 DEBUG 53605 [305FB08B640B41EC92EF8AED3AE667F6] [http-nio-8001-exec-4] c.b.b.sample.sink.controller.EchoServer  EchoServer传入消息:[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;root&gt;&lt;retryCount&gt;4&lt;/retryCount&gt;&lt;accountNo&gt;003&lt;/accountNo&gt;&lt;/root&gt;]
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:36.168 DEBUG 53605 [305FB08B640B41EC92EF8AED3AE667F6] [http-nio-8001-exec-4] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]解包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:52.373 DEBUG 53605 [933B128B00DB4B4AB79EE69CD2C80009] [http-nio-8001-exec-5] c.b.b.s.sink.controller.Sink3Controller  inMessage:BizMessage(code=0, message=null, extMessage=null, traceId=f1afe72dac0842ad8912e063b7bcf593, parentTraceId=null, timestamp=1631513601741, data={&quot;retryCount&quot;:5,&quot;accountNo&quot;:&quot;003&quot;})
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:52.375 DEBUG 53605 [933B128B00DB4B4AB79EE69CD2C80009] [http-nio-8001-exec-5] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]打包
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:52.379 DEBUG 53605 [933B128B00DB4B4AB79EE69CD2C80009] [http-nio-8001-exec-5] com.bizmda.bizsip.sink.Sink              Sink通过Connect[sink-bean]调用服务
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:52.379 DEBUG 53605 [933B128B00DB4B4AB79EE69CD2C80009] [http-nio-8001-exec-5] c.b.b.s.connector.SinkBeanSinkConnector  调用SinkBeanSinkConnector[com.bizmda.bizsip.sample.sink.controller.EchoServer]的process()
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:52.379 DEBUG 53605 [933B128B00DB4B4AB79EE69CD2C80009] [http-nio-8001-exec-5] c.b.b.sample.sink.controller.EchoServer  EchoServer传入消息:[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;root&gt;&lt;retryCount&gt;5&lt;/retryCount&gt;&lt;accountNo&gt;003&lt;/accountNo&gt;&lt;/root&gt;]
+[bizsip-sample-sink:192.168.10.15:8001] 2021-09-13 14:13:52.380 DEBUG 53605 [933B128B00DB4B4AB79EE69CD2C80009] [http-nio-8001-exec-5] com.bizmda.bizsip.sink.Sink              Sink调用Convert[simple-xml]解包
+
+</code></pre>
+<h3 id="16-java聚合服务实现简单服务转发">16 Java聚合服务实现简单服务转发</h3>
+<p>通过Biz-SIP的开放API接口，通过Java开发的聚合服务，来调用CRM服务（用CrmServer.java类作为模拟），查询返回对应的账户名称。
+<img src="19b889d9ff36ddde7abd839ca5bb2825.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:sample1.service1&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;31cd857883974c8bae79ecf8ac12fdf0&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1610246650385,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;张三&quot;,
+    &quot;accountNo&quot;: &quot;003&quot;
+  }
+}
+</code></pre>
+<h3 id="17-java聚合服务调用基于script的延迟服务">17 Java聚合服务调用基于Script的延迟服务</h3>
+<p>通过Biz-SIP的开放API接口，通过Java开发的聚合服务，调用SAF服务，对server3服务进行多达5次的服务重试调用。
+<img src="2d025639c899667263b26120319031d1-20210924202701753.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/sample/service2&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: null,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;7df1a4f93098402b902ba8eafec7bfcb&quot;,
+  &quot;parentTraceId&quot;: &quot;c4a603917bb04bbc97d8041015dbe36c&quot;,
+  &quot;timestamp&quot;: 1610247196000,
+  &quot;data&quot;: {
+    &quot;accountNo&quot;: &quot;003&quot;
+  }
+}
+</code></pre>
+<h3 id="18-调用netty长连接异步返回">18 调用Netty长连接异步返回</h3>
+<p>通过Biz-SIP的开放API接口，通过RabbitMQ连接器，调用Netty TCP长连接，并把原包通过TCP长连接异步返回。
+<img src="341e167db6560e43b060d0ab2418fda7.svg" alt="">在终端1启动：</p>
+<pre><code class="language-shell">$ nc -l 4444|nc localhost 4445
+</code></pre>
+<p>在终端2启动：</p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server9&quot; -X POST --data '{&quot;accountNo&quot;:&quot;62001818&quot;,&quot;sex&quot;:&quot;0&quot;,&quot;email&quot;:&quot;123232@163.com&quot;,&quot;mobile&quot;:&quot;18601872345&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;e40c37b3196044b5a9f5b5e9c699262d&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1621303728434,
+  &quot;data&quot;: {
+    &quot;sex&quot;: &quot;0&quot;,
+    &quot;mobile&quot;: &quot;18601872345&quot;,
+    &quot;accountNo&quot;: &quot;62001818&quot;,
+    &quot;email&quot;: &quot;123232@163.com&quot;
+  }
+}
+</code></pre>
+<h3 id="19-调用springbean服务">19 调用SpringBean服务</h3>
+<p>通过Biz-SIP的开放API接口，调用Spring容器Bean服务（用EchoBeanServer.java类作为模拟）。
+<img src="65f37a65daf1bcf8bb0336876aee88e4.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/openapi/server10&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;f30a96f6d73b4f44853b56a29688e1aa&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1609914563646,
+  &quot;data&quot;: {
+    &quot;accountNo&quot;: &quot;003&quot;
+  }
+}
+</code></pre>
+<h3 id="20-聚合服务调用sinkclient接口服务">20 聚合服务调用SinkClient接口服务</h3>
+<p>通过Biz-SIP的开放API接口，调用以Java接口方式暴露的SinkClient服务。
+<img src="bbdd4654c04896b1fc7bd728e24e0477.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/sample/service3&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq 
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;8490e767f25d4a08ad059a5ed49cec1d&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1631442018752,
+  &quot;data&quot;: {
+    &quot;customerDTO&quot;: {
+      &quot;sex&quot;: &quot;1&quot;,
+      &quot;isMarried&quot;: false,
+      &quot;customerId&quot;: &quot;001&quot;,
+      &quot;name&quot;: &quot;张三&quot;,
+      &quot;age&quot;: 20
+    },
+    &quot;accountDTOs&quot;: [
+      {
+        &quot;balance&quot;: 1200,
+        &quot;account&quot;: &quot;0001&quot;
+      },
+      {
+        &quot;balance&quot;: 45000,
+        &quot;account&quot;: &quot;0003&quot;
+      }
+    ],
+    &quot;sink1&quot;: {
+      &quot;accountName&quot;: &quot;张三&quot;,
+      &quot;accountNo&quot;: &quot;003&quot;
+    },
+    &quot;accountDTOList&quot;: [
+      {
+        &quot;balance&quot;: 3400,
+        &quot;account&quot;: &quot;0002&quot;
+      },
+      {
+        &quot;balance&quot;: 77800,
+        &quot;account&quot;: &quot;0004&quot;
+      }
+    ],
+    &quot;result1&quot;: &quot;doService1() result&quot;
+  }
+}
+</code></pre>
+<h3 id="21-java聚合服务调用java延迟服务">21 Java聚合服务调用Java延迟服务</h3>
+<p>通过Biz-SIP的开放API接口，在脚本服务中调用SAF服务，对server3服务进行多达5次的服务重试调用。
+<img src="2cdb9c26523ad91e889db449a442f35d.svg" alt=""></p>
+<p>上送请求数据说明：</p>
+<ul>
+<li>“maxRetryNum”为最大请求次数</li>
+<li>“result”为最后的响应为成功还是失败。</li>
+</ul>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/sample/service4&quot; -X POST --data '{&quot;maxRetryNum&quot;:2,&quot;result&quot;:&quot;success&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;c16b63d02e844183811ac7cc01a4a046&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1630217962113,
+  &quot;data&quot;: {
+    &quot;maxRetryNum&quot;: 2,
+    &quot;result&quot;: &quot;success&quot;
+  }
+}
+</code></pre>
+<h3 id="22-聚合服务匹配springbean服务">22 聚合服务匹配SpringBean服务</h3>
+<p>通过Biz-SIP的开放API接口，通过在“prefix-service.yml”中约定的服务前缀，调用所绑定对应类（或接口）的SpringBean所对应的方法。
+<img src="c4f49701e5979c46fee698cf81670113.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/springbean&quot; -X POST --data '{&quot;methodName&quot;:&quot;doService1&quot;,&quot;params&quot;:[&quot;003&quot;]}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;a4efdb7ea392416eabd048c283535a1e&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1630398028746,
+  &quot;data&quot;: {
+    &quot;result&quot;: &quot;doService1() result&quot;
+  }
+}
+
+$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/springbean&quot; -X POST --data '{&quot;methodName&quot;:&quot;doService2&quot;,&quot;params&quot;:[&quot;003&quot;,1]}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;0ac04237c79a415daa76ed6543dce839&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1630398312998,
+  &quot;data&quot;: {}
+}
+
+$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/springbean&quot; -X POST --data '{&quot;methodName&quot;:&quot;queryCustomerDTO&quot;,&quot;params&quot;:[&quot;003&quot;]}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;d20837e2b76048f8aabb09915d691f98&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1630398340509,
+  &quot;data&quot;: {
+    &quot;result&quot;: {
+      &quot;sex&quot;: &quot;1&quot;,
+      &quot;isMarried&quot;: false,
+      &quot;customerId&quot;: &quot;001&quot;,
+      &quot;name&quot;: &quot;张三&quot;,
+      &quot;age&quot;: 20
+    }
+  }
+}
+
+</code></pre>
+<h3 id="23-sink聚合服务直接调用sink">23 Sink聚合服务直接调用Sink</h3>
+<p>通过Biz-SIP的开放API接口，通过配置的Sink聚合服务，直接调用CRM服务（用CrmServer.java类作为模拟），查询返回对应的账户名称。
+<img src="ea627b4bd4f84a360a6ab7657e531530-20210924202843280.svg" alt=""></p>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/sinkService&quot; -X POST --data '{&quot;accountNo&quot;:&quot;003&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;9856ede98cf2492c9d17db5e86e53752&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1630474662509,
+  &quot;data&quot;: {
+    &quot;accountName&quot;: &quot;张三&quot;,
+    &quot;accountNo&quot;: &quot;003&quot;
+  }
+}
+
+</code></pre>
+<h3 id="24-聚合服务调用delayserviceclient接口服务">24 聚合服务调用DelayServiceClient接口服务</h3>
+<p>通过Biz-SIP的开放API接口，在脚本服务中调用SAF服务，对server3服务进行多达5次的服务重试调用。
+<img src="0d505c56488b51d0744b118feb884530.svg" alt=""></p>
+<p>上送请求数据说明：</p>
+<ul>
+<li>“maxRetryNum”为最大请求次数</li>
+<li>“result”为最后的响应为成功还是失败。</li>
+</ul>
+<pre><code class="language-shell">$ curl -H &quot;Content-Type:application/json&quot; -H &quot;Biz-Service-Id:/sample/service5&quot; -X POST --data '{&quot;method&quot;:&quot;notify&quot;,&quot;maxRetryNum&quot;:3,&quot;result&quot;:&quot;success&quot;}' http://localhost:8888/api|jq
+
+{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: null,
+  &quot;extMessage&quot;: null,
+  &quot;traceId&quot;: &quot;63cd38f36fa647cf9be0403c81e2c058&quot;,
+  &quot;parentTraceId&quot;: null,
+  &quot;timestamp&quot;: 1630541890888,
+  &quot;data&quot;: {
+    &quot;method&quot;: &quot;notify&quot;,
+    &quot;className&quot;: &quot;com.bizmda.bizsip.sample.sink.api.SinkInterface1&quot;,
+    &quot;params&quot;: [
+      3,
+      &quot;success&quot;
+    ]
+  }
+}
+</code></pre>
+          </div>
+
+          
+
+
+
+          
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/doc/configuation/" rel="prev">系统配置</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Sep 24, 2021</p>
+
+          
+
+
+
+          
+
+
+
+
+          
+
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+
+  
+
+  
+
+  
+  <p class="powered-by">
+    © 2020-2021 BIZMDA.com版权所有 <a href="http://beian.miit.gov.cn">沪ICP备2021002172号</a>
+  </p>
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      由<a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>支持发布——免费<a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">开源</a>网站，为创作者赋能。
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/zh/js/wowchemy.min.c01dc0f474cb5aa17a63e06eb00111fe.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>
